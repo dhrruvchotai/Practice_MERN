@@ -57,4 +57,3 @@ mongoose.connect(connStr).then(()=>{
 
 });
 
-// This are all my Basic Projects or Codes that i have done during learning of MERN Stack. (This is practice for MERN Stack.)
