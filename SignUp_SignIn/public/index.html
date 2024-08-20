@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SignIn & Signup Form</title>
+
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+
+        <section class="wrapper">
+
+            <div class="form signup">
+
+                <header>Signup</header>
+
+                <form action="/signup" method="post" class="signUpForm">
+                    
+                    <input type="text" name="FullName" placeholder="Full name" required />
+                    <input type="text"  name="Email" placeholder="Email address" required />
+                    <input type="password" name="Password" placeholder="Password" required />
+
+                    <div class="checkbox">
+                        <input type="checkbox" id="signupCheck" />
+                        <label for="signupCheck">I accept all terms &
+                            conditions</label>
+                    </div>
+
+                    <input type="submit" value="Signup" />
+
+                </form>
+
+            </div>
+
+            <div class="form signin">
+
+                <header>Login</header>
+
+                <form action="/signin" method="post" class="loginForm">
+
+                    <input type="text" name="Email" placeholder="Email address"
+                        class="loginEmail" required />
+                    <input type="password" name="Password"
+                        placeholder="Password" class="loginPassword" required />
+                    <a href="#" style="font-weight: 500;">Forgot password?</a>
+
+                    <input type="submit" value="Login"/>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>
