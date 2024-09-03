@@ -15,3 +15,8 @@ app.get('/user/:id',(req,res,next)=>{
 app.get('/user/:id',(req,res,next)=>{
     res.send('special');
 });
+
+
+app.listen(4140, () => {
+    console.log('Server started at 4140.');
+});
