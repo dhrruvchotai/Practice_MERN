@@ -7,7 +7,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-  <h1>Hello From index.js</h1>
+    <h1>Hello from my practice react folder.</h1>
+    <h2>This is my practice folder for react.</h2>
+
   </>
 );
 
