@@ -9,7 +9,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/dashboard', (req, res) => {
-    res.send('User Dashboard');
+    res.send('This is User Dashboard');
 });
 
 app.use('/user', router);
