@@ -37,7 +37,7 @@ const newarr = data.map ((elmt) => {
   )
 });
 
-const newarr1 = data.map ((elmt) => {
+const newdata = data.map ((elmt) => {
   return(
     <>
     <div className="col col-3">
@@ -61,9 +61,8 @@ const newarr1 = data.map ((elmt) => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <br/>
-    <div className="container-sm">
-      <div className="row">{newarr1}</div>
+    <div className="container-sm m-4">
+      <div className="row">{newdata}</div>
     </div>
   </>
 
