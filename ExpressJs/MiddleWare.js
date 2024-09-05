@@ -2,8 +2,12 @@ const express = require('express');
 const app = express();
 
 //This is middleware.
-app.use((req,res,next)=>{
-    res.send("Hello from the middleware.")
+app.use('/hello',(req,res,next)=>{
+    next();
+    res.send("hello");
+})
+app.get('/hello',(req,res,next)=>{
+    console.log("Hello from the route.")
 })
 
 //This will never be executed because in middleware you ended the response by res.send
@@ -14,5 +18,5 @@ app.get("/",(req,res)=>{
 });
 
 app.listen(4140,()=>{
-    console.log("Sever started at 3400.")
+    console.log("Sever started at 4140.")
 });

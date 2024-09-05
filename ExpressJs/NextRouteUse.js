@@ -9,11 +9,11 @@ app.get('/user/:id',(req,res,next)=>{
     }
     else next();
 },(req,res,next)=>{
-    res.send('regular');
+    res.send('regular route route 1');
 });
 
 app.get('/user/:id',(req,res,next)=>{
-    res.send('special');
+    res.send('route2');
 });
 
 
