@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
+
+//========================FOR CARD=====================================
 
 const data = [
   {
@@ -26,21 +29,21 @@ const data = [
   }
 ]
 
-const newarr = data.map ((elmt) => {
-  return(
-  <>
-    <tr>
-      <td>{elmt.name}</td>
-      <td>{elmt.rollNo}</td>
-    </tr>
-  </>
-  )
-});
+// const newarr = data.map ((elmt) => {
+//   return(
+//   <>
+//     <tr>
+//       <td>{elmt.name}</td>
+//       <td>{elmt.rollNo}</td>
+//     </tr>
+//   </>
+//   )
+// });
 
 const newdata = data.map ((elmt) => {
   return(
     <>
-    <div className="col col-3">
+      <div className="col-3">
         <div className="card">
           <img src={elmt.imgPath} className="card-img-top" alt="..."/>
           <div className="card-body">
@@ -54,17 +57,91 @@ const newdata = data.map ((elmt) => {
   )
 });
 
+
+//===================FOR ROUTING==============================================
+function Home(){
+  return(
+    <>
+      <h1>Hello from Home Page.</h1>
+      
+    </>
+  )
+}
  
+function About(){
+  return(
+    <>
+      <h1>Hello from About Page.</h1>
+    </>
+  )
+}
+ 
+function Contact(){
+  return(
+    <>  
+      <br/>
+      <h1>Please, Contact This Persons.</h1>
+      <br/>
+      <div className='container'>
+        <div className='row'>{newdata}</div>
+      </div> 
+    </>
+  )
+}
 
+function MyNavbar(){
 
+  return(
+    <>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <Link class="nav-link active" aria-current="page" to="/home">Home</Link>
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" to="/about">About</Link>
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link" to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <Outlet/>
+    </>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
-    <div className="container-sm m-4">
-      <div className="row">{newdata}</div>
-    </div>
-  </>
+
+//=====================FOR CARD====================
+// <>
+//   <div className="container-sm m-4">
+//     <div className="row">{newdata}</div>
+//   </div>
+// </>
+
+
+
+  //===========================FOR ROUTING===============================================
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<MyNavbar/>}>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+      </Route>
+    </Routes>
+  </BrowserRouter>
 
 );
 
