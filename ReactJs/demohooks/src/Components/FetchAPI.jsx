@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import axios from 'axios';
 const FetchAPI = () => {
 
     const [data, setData] = useState([]);
@@ -7,9 +7,15 @@ const FetchAPI = () => {
 
     async function fetchData(varname) {
         try {
+
+            //for fetch api
             const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=14d435fd&s=${varname}`);
             const result = await response.json();
             setData(result.Search);
+
+            //for axios
+            // const result = await axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=14d435fd&s=${varname}`);
+            // setData(result.data.Search);
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -19,11 +25,11 @@ const FetchAPI = () => {
         fetchData();
     }, []);
 
-    SearchChange = (obj) => {
+    const SearchChange = (obj) => {
         setVarname(obj.target.value);  // Update the search term on input change
     };
 
-    SearchSubmit = (obj) => {
+    const SearchSubmit = (obj) => {
         obj.preventDefault();
         fetchData(varname);  // Fetch data based on the updated search term when the form is submitted
     };
